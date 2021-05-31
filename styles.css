@@ -8,9 +8,14 @@
 body{
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
-    display: flex;
+    background-image: linear-gradient(326deg, #a4508b 0%, #5f0a87 74%);
+    display: flex; 
+    flex-direction: column; 
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    margin: 0;
+    margin: 0; 
+    min-height: 100vh; 
+
 }
+
+ 
