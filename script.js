@@ -10,9 +10,11 @@ async function getUser( userName ){
     const res = await fetch( APIURL + userName ); 
     const userData = await res.json(); 
 
-    console.log( userData )
+    //console.log( userData )
 
     createUserCard( userData ); 
+
+    getRepos(userName); 
 }
 
 
@@ -30,6 +32,9 @@ function createUserCard( userData ){
                 <li>${userData.following}<strong>Following</strong></li>
                 <li>${userData.public_repos}<strong>Repos</strong></li>
             </ul>
+
+            <div class = "repos" id = "repos">
+            </div>
         </div>
     </div>    
     `; 
@@ -37,6 +42,31 @@ function createUserCard( userData ){
     console.log( cardHTML )
 
     main.innerHTML = cardHTML; 
+}
+
+async function getRepos(userName){
+    const res = await fetch( APIURL + userName + '/repos'); 
+    const respData = await res.json(); 
+
+    console.log( respData )
+
+    addReposToData(respData); 
+}
+
+function addReposToData(respData){
+    const reposEl = document.getElementById('repos'); 
+
+    respData.forEach( repo => {
+        const repoEl = document.createElement('a'); 
+
+        repoEl.classList.add('repo'); 
+        repoEl.target = "_blank"; 
+        repoEl.href = repo.html_url; 
+        repoEl.innerText = repo.name; 
+
+        reposEl.appendChild(repoEl); 
+    })
+
 }
 
 form.addEventListener("submit", e=>{
