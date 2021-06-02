@@ -18,4 +18,69 @@ body{
 
 }
 
- 
+input{
+    background-color: #a4508b; 
+    border-radius: 10px; 
+    border: none; 
+    font-size: 1rem; 
+    padding: 1rem; 
+    font-family: inherit;
+    margin-bottom: 2rem; 
+    color: #fff; 
+}
+
+input:focus{
+    outline: none; 
+}
+
+input::placeholder{
+    color: #bbb; 
+}
+
+.card{
+    background-color: #a4508b; 
+    background-image: linear-gradient(326deg, #a4508b 0%, #5f0a87 74%);
+    display: flex; 
+    padding: 3rem; 
+    border-radius: 20px; 
+    box-shadow: 0 5px 10px rgba(154,160,185,.05), 0 15px 40px rgba(166,173,201,.2);
+    width: 800px; 
+}
+
+.img-container{
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+.avatar{
+    height: 150px; 
+    width: 150px; 
+    border: 1px solid #a4508b; 
+    border-radius: 50%; 
+}
+
+.user-info{
+    margin-left: 2rem; 
+    color: #ccc; 
+     
+}
+
+.user-info h2{
+    margin-top: 0; 
+}
+
+.user-info ul{
+    display: flex; 
+    justify-content: space-between; 
+    max-width: 500px; 
+    padding: 0; 
+    list-style-type: none; 
+    margin-top: 1rem; 
+}
+
+.user-info ul li strong{
+    font-family: inherit;
+    margin-left: 0.5rem; 
+    font-size: 0.85rem; 
+}

@@ -4,7 +4,7 @@ const main = document.getElementById("main");
 const form = document.getElementById('form');
 const search = document.getElementById('search');
 
-
+getUser("uniqcle"); 
 
 async function getUser( userName ){
     const res = await fetch( APIURL + userName ); 
@@ -19,16 +19,16 @@ async function getUser( userName ){
 function createUserCard( userData ){
     const cardHTML = `
     <div class = "card">
-        <div>
-            <img src = "${userData.avatar_url}" alt = "${userData.name}" />
+        <div class = "img-container">
+            <img class = "avatar" src = "${userData.avatar_url}" alt = "${userData.name}" />
         </div>
-        <div>
+        <div class = "user-info">
             <h2>${userData.name}</h2>
             <p>${userData.bio}</p>
-            <ul>
-                <li>${userData.followers}</li>
-                <li>${userData.following}</li>
-                <li>${userData.public_repos}</li>
+            <ul class = "info">
+                <li>${userData.followers}<strong>Followers</strong></li>
+                <li>${userData.following}<strong>Following</strong></li>
+                <li>${userData.public_repos}<strong>Repos</strong></li>
             </ul>
         </div>
     </div>    
@@ -45,5 +45,6 @@ form.addEventListener("submit", e=>{
     const searchUser = search.value; 
     if(searchUser){
         getUser( searchUser ); 
+        search.value = ""; 
     }
 })
